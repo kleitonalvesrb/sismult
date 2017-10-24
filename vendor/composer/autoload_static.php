@@ -6,8 +6,18 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit1aff3b81625dc56028c60c800280ab6a
 {
-    public static $fallbackDirsPsr4 = array (
-        0 => __DIR__ . '/..' . '/sismult/php-classes/src',
+    public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Sismult\\' => 8,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Sismult\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sismult/php-classes/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -41,7 +51,8 @@ class ComposerStaticInit1aff3b81625dc56028c60c800280ab6a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->fallbackDirsPsr4 = ComposerStaticInit1aff3b81625dc56028c60c800280ab6a::$fallbackDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1aff3b81625dc56028c60c800280ab6a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1aff3b81625dc56028c60c800280ab6a::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit1aff3b81625dc56028c60c800280ab6a::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit1aff3b81625dc56028c60c800280ab6a::$classMap;
 

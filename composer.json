@@ -16,7 +16,7 @@
 	},
 	"autoload":{
 			"psr-4":{
-				"":"vendor\\sismult\\php-classes\\src"
+				"Sismult\\":"vendor\\sismult\\php-classes\\src"
 			}
 
 	}
