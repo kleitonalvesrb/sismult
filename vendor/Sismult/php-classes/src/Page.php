@@ -7,35 +7,41 @@
 
 		private $tpl;
 		private $options =[];
-		private $defaults =["data"=>[]];
+		private $defaults =[
+
+			"header"=>true,
+			"footer"=>true,
+			"dados"=>[]
+		];
 
 		public function __construct($opts = array(),$tpl_dir ="/views/"){
+			
 			$this->options = array_merge($this->defaults,$opts);
 			$config = array(
 					"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"].$tpl_dir,
 					"cache_dir"     => $_SERVER["DOCUMENT_ROOT"]."views-cache/",
-					"debug"         => false // set to false to improve the speed
+					"debug"         => false // definido como falso para melhorar a velocidade
 				   );
 
 			Tpl::configure( $config );
 
 			$this->tpl = new Tpl;
 
-			$this->setData($this->options["data"]); // Passando os dados. Obs: "Data" não é uma data de calendario, e sim uma data de DADOS!!!
+			$this->setDados($this->options["dados"]); // Passando os dados. 
 
-			$this->tpl->draw("header");
+			if($this->options["header"] === true) $this->tpl->draw("header"); // validação de decisão de carregamento de templetes 
 
 		}
 
-		private function setData($data = array()){
+		private function setDados($dados = array()){
 
-			foreach($data as $key => $value){
+			foreach($dados as $key => $value){
 				$this->tpl->assign($key, $value);
 			}
 		}
 
-		public function setTpl($name, $data = array(), $returnHTML = false){
-			$this->setData($data);
+		public function setTpl($name, $dados = array(), $returnHTML = false){
+			$this->setDados($dados);
 
 			return $this->tpl->draw($name, $returnHTML);
 
@@ -43,7 +49,7 @@
 
 		public function __destruct(){
 
-			$this->tpl->draw("footer");
+			if($this->options["footer"] === true) $this->tpl->draw("footer");// validação de decisão de carregamento de templetes 
 
 		}
 
