@@ -7,6 +7,9 @@ use \Sismult\Modelo\Usuario;
 
 $app = new \Slim\Slim();
 
+
+
+// Está função faz o direcionamento de rota para pagina inicial do site
 $app->config('debug',true);
 
 $app->get('/',function(){
@@ -17,6 +20,7 @@ $app->get('/',function(){
 });
 
 
+// Está função faz o diferecionamento de rota para pagina inicial do administrador 
 $app->config('debug',true);
 
 $app->get('/admin',function(){
@@ -26,6 +30,25 @@ $app->get('/admin',function(){
 	$page->setTpl("index");
 });
 
+
+
+// Está função faz o diferecionamento de rota para pagina de login 
+$app->config('debug',true);
+
+$app->get('/login',function(){
+	
+	$page = new Page([ 
+
+		"header"=> false,
+		"footer"=> false
+	]);
+
+	$page->setTpl("login");
+});
+
+
+
+// Está função faz o diferecionamento de rota para pagina de login do administrador
 $app->get('/admin/login', function(){
 
 	$page = new PageAdmin([
@@ -36,6 +59,8 @@ $app->get('/admin/login', function(){
 
 	$page->setTpl("login");
 });
+
+
 
 $app->post('/admin/login', function(){
 

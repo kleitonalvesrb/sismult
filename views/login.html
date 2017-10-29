@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="SISMULT, tela de login">
+        <meta name="author" content="Deyvid Alves">
+        <meta name="reply-to" content="deyvid.lima@catolica.edu.br">
+
+
+        <!-- Bootstrap core CSS -->
+        <link href="res/site/css/form-login.css" type= "text/css" rel="stylesheet">
+
+
+
+        <title>Login</title>
+        <link rel="icon" href="res/site/imagens/logo.jpg" type="image/x-icon" />
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="card card-container">
+               
+                <a href="/"><img id="profile-img" class="profile-img-card" src="res/site/imagens/logo.jpg" ></a>
+                <p id="profile-name" class="profile-name-card"></p>
+                <form class="form-signin">
+                    <span id="reauth-email" class="reauth-email"></span>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus name="email">
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required name="senha">
+                    <div id="remember" class="checkbox">
+                        <label>
+                            <input type="checkbox" value="lembra-me"> <i>Lembra-me</i>
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                </form><!-- /form -->
+                <a href="#" class="forgot-password">
+                    Esqueceu sua senha?
+                </a>
+
+            </div><!-- /card-container -->
+        </div><!-- /container -->
+    </body>
+</html>
