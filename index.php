@@ -70,6 +70,16 @@ $app->post('/admin/login', function(){
 	exit;
 });
 
+// essa funcao e para fazer a chamada da tela registra
+$app->config('debug',true);
+
+$app->get('/registra',function(){
+	
+	$page = new page();
+
+	$page->setTpl("index");
+});
+
 $app->run();
 
 
