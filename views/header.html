@@ -18,6 +18,9 @@
         <!-- Custom CSS -->
         <link href="/res/site/css/home.css" rel="stylesheet">
 
+        <link rel="stylesheet" type="text/css" href="/res/site/css/cadastroModal.css">
+
+
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,6 +50,25 @@
                 <!-- A marca navbar está escondida em telas maiores, mas visível quando o menu está desmoronado -->
                 <a class="navbar-brand" href="index.html">SISMULT</a>
             </div>
+
+
+
+            <div id="modal" >
+                
+                <div class="modal-box">
+                    
+                    <div class="modal-box-conteudo">
+                        
+                    </div>
+                    <div class="fechar" onclick="fecharModal()"> <img src="/res/site/imagens/botao.png"> </div>
+                </div>
+
+
+            </div>
+
+
+
+
             <!--Colecione os links, formulários e outros conteúdos de navegação para alternar-->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -57,7 +79,7 @@
                         <a href="about.html">Sobre</a>
                     </li>
                     <li>
-                        <a  href="/registra">Registrar-se</a>
+                        <a  href="#" onclick="abrirModal()">Registrar-se</a>
                     </li>
                     <li>
                         <a href="/login">Login</a>

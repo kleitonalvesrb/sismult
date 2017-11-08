@@ -23,13 +23,21 @@
             interval: 5000 //changes the speed
         })
         </script>
-        <script>
-            function abrirModal(){
-                alert("oii");
-                $("#loginModal").modal("show");
-                //document.getElementById("loginModal").showModal(); 
+        
+        <script type="text/javascript">
+
+            function abrirModal() { 
+                document.getElementById("modal").style.display="block"; 
+                document.getElementById("modal").style.zIndex="1";
                 
+
             }
+            function fecharModal() { 
+                document.getElementById("modal").style.display="none"; 
+                
+
+            }
+
         </script>
 
 

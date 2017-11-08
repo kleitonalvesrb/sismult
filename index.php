@@ -71,13 +71,15 @@ $app->post('/admin/login', function(){
 });
 
 // essa funcao e para fazer a chamada da tela registra
-$app->config('debug',true);
-
-$app->get('/registra',function(){
+$app->get('/modal',function(){
 	
-	$page = new page();
+	$page = new Page([ 
 
-	$page->setTpl("index");
+		"header"=> false,
+		"footer"=> false
+	]);
+
+	$page->setTpl("modal");
 });
 
 $app->run();
