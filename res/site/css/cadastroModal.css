@@ -12,14 +12,93 @@
 
 .modal-box{	
 	background: #FFF; 
-	width: 60%;
-	height: 300px;
+	width: 30%;
+	height: 430px;
 	position: absolute;
-	left: 50%;
-	top: 50%;
+	left: 65%;
+	top: 45%;
 	margin-left: -30%;
 	margin-top: -150px;
 }
+
+
+.modal-group{
+
+    margin-bottom: 5px;
+    
+}
+
+.label-modal{
+	top: 50px;
+	left: 20%;
+	position: relative;
+	
+	
+}
+
+
+.modal-control{
+	display: block;
+	position: relative;
+	top: 50px;
+	left: 20%;
+  width: 60%;
+  height: 44px;
+  
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  
+}
+
+
+.button {
+          border-color: #2e6da4;
+          border-radius: 3px;
+                
+          border: 1px solid transparent;
+               
+          width: 30%;
+          display: inline-block;
+          padding: 6px 30px;
+          margin-bottom: 0;
+                
+          cursor: pointer;
+               
+               
+          border: 1px solid transparent;
+          border-radius: 4px;
+}
+
+.button-enviar{
+          top: 70px;
+          left: 20%;
+          position: relative;
+          color: #fff;
+          background-color: #337ab7;
+
+}
+
+.button-cancelar{
+          top: 70px;
+          left: 20%;
+          position: relative;
+          color: #fff;
+          background-color: #337ab7;
+
+
+}
+
+
 
 .fechar{
 	padding: 5px 10px;
@@ -36,3 +115,34 @@
 	color: #666;
 	border-color: #666;
 }
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    border-color: rgb(152, 115, 229);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(110, 33, 162, 0.07),0 0 8px rgb(72, 41, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(110, 33, 162);
+}
+
+
+

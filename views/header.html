@@ -9,7 +9,7 @@
         <meta name="author" content="Deyvid Alves">
 
         <title>Home - SISMULT</title>
-
+        <!-- Logo na guia -->
         <link rel="icon" href="/res/site/imagens/logo.jpg" type="image/x-icon" />
 
         <!-- Bootstrap Core CSS -->
@@ -17,9 +17,13 @@
 
         <!-- Custom CSS -->
         <link href="/res/site/css/home.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/res/site/css/cadastroModal.css">
 
-        <link rel="stylesheet" type="text/css" href="/res/site/css/cadastroModal.css">
-
+        <!-- Link do sweetAlert. Alerta de erro para formularios -->
+		
+		<link rel="stylesheet" type="text/css" href="res/admin/sweetAlert/sweetalert.css">
+		<script src="res/admin/sweetAlert/sweetalert.min.js"></script> 
+        
 
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -57,10 +61,33 @@
                 
                 <div class="modal-box">
                     
-                    <div class="modal-box-conteudo">
-                        
+                  
+                    	<form action="" method="" onSubmit="return validaDados(this)" name="formulario">
+			                	<div class="modal-group">
+			                  		<label class="label-modal">Nome:</label>
+			                  		<input type="text" class="modal-control"  placeholder="Nome" id="nome" required autofocus>
+			                	</div>
+			                	<div class="modal-group">
+			                  		<label class="label-modal">Email:</label>
+			                  		<input type="email" class="modal-control" id="email"
+			                  		 placeholder="Email" required autofocus>
+			                	</div>
+			                	<div class="modal-group">
+			                  		<label class="label-modal">Senha:</label>
+			                  		<input type="password" class="modal-control"  placeholder="Senha" id="senha" required autofocus>
+			                	</div>
+			                	<div class="modal-group">
+			                  		<label class="label-modal">Confirma Senha:</label>
+			                  		<input type="password" class="modal-control"  placeholder="Confirma Senha" id="confirmaSenha" required autofocus>
+			                  		<button type="submit" name="enviar" class="button button-enviar">Enviar</button> 
+			                  		<button type="button" name="cancelar" class="button button-cancelar" onclick="fecharModal()">Cancelar</button> 
+			                	</div>			
+              				
+            			</form>
+
+                        <div class="fechar" onclick="fecharModal()"> <img src="/res/site/imagens/botao.png"> </div>
                     </div>
-                    <div class="fechar" onclick="fecharModal()"> <img src="/res/site/imagens/botao.png"> </div>
+                    
                 </div>
 
 
@@ -76,7 +103,7 @@
                         <a href="/">Home</a>
                     </li>
                     <li>
-                        <a href="about.html">Sobre</a>
+                        <a href="/sobre">Sobre</a>
                     </li>
                     <li>
                         <a  href="#" onclick="abrirModal()">Registrar-se</a>

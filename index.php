@@ -70,8 +70,11 @@ $app->post('/admin/login', function(){
 	exit;
 });
 
-// essa funcao e para fazer a chamada da tela registra
-$app->get('/modal',function(){
+
+
+$app->config('debug',true);
+
+$app->get('/sobre',function(){
 	
 	$page = new Page([ 
 
@@ -79,8 +82,10 @@ $app->get('/modal',function(){
 		"footer"=> false
 	]);
 
-	$page->setTpl("modal");
+	$page->setTpl("sobre");
 });
+
+
 
 $app->run();
 

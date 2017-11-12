@@ -26,17 +26,47 @@
         
         <script type="text/javascript">
 
+             function validaDados(formulario){
+                
+                if(formulario.nome.value==""){
+                    sweetAlert("Oops...", "Informe seu nome", "error");
+                    return false;
+                }
+                if(formulario.email.value==""){
+                    sweetAlert("Oops...", "Informe seu email", "error");
+                    return false;
+                }
+
+               
+
+                if(formulario.senha.value==""){
+                    sweetAlert("Oops...", "Informe sua senha", "error");
+                    return false;
+                }
+                if(formulario.confirmaSenha.value==""){
+                    sweetAlert("Oops...", "Confirme sua senha", "error");
+                    return false;
+                }
+                if(formulario.confirmaSenha.value!= formulario.senha.value){
+                    sweetAlert("Oops...", "As senhas não conferem", "error");
+                    return false;
+                }
+            }
+
             function abrirModal() { 
                 document.getElementById("modal").style.display="block"; 
                 document.getElementById("modal").style.zIndex="1";
                 
 
             }
-            function fecharModal() { 
+            function fecharModal() {
+
                 document.getElementById("modal").style.display="none"; 
                 
 
             }
+
+           
 
         </script>
 

@@ -1,23 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Administrador | Login</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SISMULT, tela de login">
+    <meta name="author" content="Deyvid Alves">
+    <meta name="reply-to" content="deyvid.lima@catolica.edu.br">
+    <title>Administrador | Login</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+
+
+  <link rel="stylesheet"  type="test/css" href="res/admin/sweetAlert/sweetalert.css">
+  <script src="/res/admin/sweetAlert/sweetalert.min.js"></script>
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="/res/admin/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+ 
   <!-- Theme style -->
   <link rel="stylesheet" href="/res/admin/dist/css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="/res/admin/plugins/iCheck/square/blue.css">
 
-  <link rel="icon" href="/res/site/imagens/logo.jpg" type="image/x-icon" />
+  <link rel="icon" href="/res/site/imagens/logo.jpg" type="image/x-icon" >
+
+  
+
+   <!-- Link do sweetAlert. Alerta de erro para formularios -->
+    
+    
+        
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,13 +53,13 @@
   <div class="login-box-body">
     <p class="login-box-msg">Faça login para iniciar sua sessão</p>
 
-    <form action="/admin/login" method="post">
+    <form action="" method=""  onSubmit="return validaDados(this)" name="formulario">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email" name ="email">
+        <input type="email" class="form-control" placeholder="Email"  id="email" required autofocus >
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Senha" name="Senha">
+        <input type="password" class="form-control" placeholder="Senha"  id="senha" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -78,6 +95,31 @@
          increaseArea: '20%' // optional
       });
     });
+
+
+     function validaDados(formulario){
+                
+
+        if(document.getElementById("email").value == ""){
+          
+             sweetAlert("Oops...", "Preencha o campo email", "error");
+              document.getElementById("email").focus();
+              return false;
+          }
+           if(document.getElementById("senha").value == ""){
+            alert("Senha invalida");
+             sweetAlert("Oops...", "Preencha o campo email", "error");
+              document.getElementById("senha").focus();
+              return false;
+          }
+          
+         
+           if( formulario.senha.value==""){
+                    sweetAlert("Oops...", "E-MAIL invalido", "error");
+
+                    return false;
+          }
+    }
   </script>
 </body>
 </html>
