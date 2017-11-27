@@ -1,10 +1,9 @@
 <?php 
 
-namespace DB;
+namespace Sismult\DB;
 
 
-class Sql {
-
+abstract class Sql {
 	const HOSTNAME = "localhost";
 	const USERNAME = "root";
 	const PASSWORD = "";
@@ -12,63 +11,54 @@ class Sql {
 
 	private $conn;
 	
-	public function Sql()
+	public function __construct ()
 	{
-		echo "oi";
-
-		$this->conn = new \PDO("mysql:host=HOST;dbname=sismult","root","");
 	
-
-		if($this->conn){
-			echo "Conexão";
-
-		}else{
-			echo "Erro ao conecta";
-		}
-
-	}
-
-	private function setParams($statement, $parameters = array())
-	{
-
-		foreach ($parameters as $key => $value) {
-			
-			$this->bindParam($statement, $key, $value);
+		try {
+		  	$this->conn = new \PDO("mysql:host=HOSTNAME;dbname=DBNAME","USERNAME", "PASSWORD");
+		} catch(PDOException $e) {
+		    echo 'ERROR: ' . $e->getMessage();
+		}finally{
 
 		}
-
 	}
 
-	private function bindParam($statement, $key, $value)
-	{
+    /**
+     * @return \PDO
+     */
+    public function getConn(): \PDO
+    {
+        return $this->conn;
+    }
 
-		$statement->bindParam($key, $value);
 
-	}
 
-	public function query($rawQuery, $params = array())
-	{
+    /**
+     * objeto  que sera inserido, pode ser pessoa, carro etc.
+     * @param $obj
+     * @return mixed
+     */
+	abstract function inserir($obj);
 
-		$stmt = $this->conn->prepare($rawQuery);
+    /**
+     * Id do objeto que será atualizado, e o novo objeto com os valores que serao atualizados
+     * @param $id
+     * @param $objNovo
+     * @return mixed
+     */
+	abstract function atualizar($id, $objNovo);
 
-		$this->setParams($stmt, $params);
+    /**
+     * id do objeto que sera excluido
+     * @param $id
+     * @return mixed
+     */
+	abstract function deletar($id);
 
-		$stmt->execute();
 
-	}
 
-	public function select($rawQuery, $params = array()):array
-	{
 
-		$stmt = $this->conn->prepare($rawQuery);
-
-		$this->setParams($stmt, $params);
-
-		$stmt->execute();
-
-		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
-	}
+	
 
 }
 

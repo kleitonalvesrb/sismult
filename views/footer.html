@@ -26,16 +26,18 @@
         
         <script type="text/javascript">
 
-             function validaDados(formulario){
-                
-                if(formulario.nome.value==""){
+
+            function validaDados(){
+
+                if($("#nome").val() == ""){
                     sweetAlert("Oops...", "Informe seu nome", "error");
                     return false;
                 }
-                if(formulario.email.value==""){
+                if($("#email").val() == ""){
                     sweetAlert("Oops...", "Informe seu email", "error");
                     return false;
                 }
+
 
                
 
@@ -51,6 +53,7 @@
                     sweetAlert("Oops...", "As senhas não conferem", "error");
                     return false;
                 }
+                return true;
             }
 
             function abrirModal() { 
@@ -66,6 +69,47 @@
 
             }
 
+             /**
+              * Cadastra usuário irá fazer a inserçao dos dados de um novo usuário através de uma requisição ajax,
+              * o método responsavel por realizar a inserçao dos dados devolve o resultado em formato json, este possui
+              * chave resultado que possuirá o valor correspondente ao status da inserçao, caso a inserçao seja realiada
+              * o valor será 1, caso contrario será 0.
+              * A responsabilidade de mandar o resultado no formato json é da função que foi solicitada.
+              * CadastrarUsuario() será chamado na açao do onClick do button
+              */
+            function cadastrarUsuario() {
+                 var url = window.location.href + "admin/login"; // pega url corrente e adc admin/login, a requisicao do ajax
+                //ira atender nessa url para fazer a inserçAo dos dados
+                 url = url.replace("#",""); // retira ocorrencias do # no meio da url
+                 if(validaDados()) { // so deixa fazer a requisicao ajax caso todos os dados do formulario estejam validados
+                     $.ajax({
+                         url: url, // url de onde sera feito a requisiçao, nesse caso a url que foi mapeado para inserir o usuario
+                         type: 'POST', // tipo de requisicao, pode ser usado GET porem deve mapear a url da mesma forma
+                         data: { //dados que serão enviados na requisicao, tanto para get ou para post
+                             'nome': $("#nome").val(), // pega o conteudo do campo que possui o id nome
+                             'email': $("#email").val(), // pega o conteudo do campo que possui o id email
+                             'senha': $("#senha").val(), // pega o conteudo do campo que possui o id senha
+                             'confirmaSenha': $("#confirmaSenha").val() // pega o conteudo do campo que possui o id confirma senha
+                         },
+                         success: function (retorno) { // quando consegue realizar a requisicao com sucesso entra nessa funcao, o
+                             //parametro dela é o que foi impresso (echo) da funcao solicitada
+                             var obj = JSON.parse(retorno); // transforma a string 'retorno' em um obj json, essa vem no formato json
+                             //porem com o tipo string
+                             if (obj.resultado == 1) { //acessa o atributo resultado do objeto 'obj', imagina que seria a mesma forma
+                                 // de acessar o atributo de uma classe php $obj->resultado();
+                                 sweetAlert("", "Cadastrado com Sucesso", "success");
+
+                                 window.location.href = 'http://www.google.com'; // redireciona para a url desejada.
+                                 //redirecionar
+                             } else {
+                                 sweetAlert("Opss", "Usuário já existi", "error");
+
+                             }
+
+                         }
+                     });
+                 }
+            }
            
 
         </script>
